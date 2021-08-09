@@ -1,6 +1,6 @@
 # dscChangeAzureTempDriveLetter
 
-PowerShell DSC Configuration Package to change the Temp Drive letter for Azure VMs and relocate the Page File to the new Temp Drive letter.
+PowerShell DSC Configuration Package to change the Temp Drive letter for Azure VMs to the T Drive and relocate the Page File to the new T Drive letter.
 
 The DSC Configuration performs the following steps:
 

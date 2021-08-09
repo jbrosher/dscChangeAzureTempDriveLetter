@@ -9,6 +9,29 @@ The DSC Configuration performs the following steps:
 3) Changes Win32_Volume using the D: Drive Letter with a label of Temporary Storage to use the T drive letter
 4) Sets the Page File configuration to use the T drive letter and restarts the VM
 
+## Package Zip File for use in the PowerShell DSC Extension
+
+> Note: Requires AZ Powershell Modules to be installed
+
+1) Publish Zip FIle Directly to a Storage Account
+
+    ``` PowerShell
+    $storageAccountName = "<storage_account_name>"
+    $storageResourceGroupName = "<storage_resource_group_name>"
+    $pathToConfigurationScript = "<path_to_script>"
+
+    Publish-AzVMDscConfiguration -ResourceGroupName $storageResourceGroupName -StorageAccountName $storageAccountNam -ConfigurationPath $pathToConfigurationScript -Force
+    ```
+
+2) Publish Zip File To Local Directory to be uploaded manually
+
+    ``` PowerShell
+    $pathToConfigurationScript = "<path_to_script>"
+    $pathToSaveZip = "<path_to_save_zip>"
+
+    Publish-AzVMDscConfiguration -ConfigurationPath $pathToConfigurationScript -OutputArchivePath "$($pathToSaveZip)\dscChangeAzureTempDriveLetter.ps1.zip" -Force
+    ```
+
 ## How to Deploy Using ARM Template
 
 1) If you have an existing DSC extension you will have to remove it before deploying this.
@@ -33,6 +56,8 @@ The DSC Configuration performs the following steps:
 4) Deploy the ARM template to the Resource Group that contains your VM
 
 ## How to Deploy Using PowerShell
+
+> Note: Requires AZ Powershell Modules to be installed
 
 1) If you have an existing DSC extension you will have to remove it before deploying this.
 2) Upload Zip file to a storage account

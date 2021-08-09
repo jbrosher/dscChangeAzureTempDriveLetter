@@ -57,7 +57,7 @@ The DSC Configuration performs the following steps:
 
 ## How to Deploy Using PowerShell
 
-> Note: Requires AZ Powershell Modules to be installed
+> Note: Requires AZ Powershell Modules to be installed and assumes the 'dscChangeAzureTempDriveLetter.ps1.zip' file exists in the 'windows-powershell-dsc' container
 
 1) If you have an existing DSC extension you will have to remove it before deploying this.
 2) Upload Zip file to a storage account

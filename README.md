@@ -2,7 +2,7 @@
 
 PowerShell DSC Configuration Package to change the Temp Drive letter for Azure VMs to the T Drive and relocate the Page File to the new T Drive letter.
 
-> Note: If you resize or Stop (Deallocate) a virtual machine, this may trigger placement of the virtual machine to a new hypervisor. A planned or unplanned maintenance event may also trigger this placement. In this scenario, the temporary disk will be reassigned to the first available drive letter. If you have an application that specifically requires the D: drive, you need to follow these steps to temporarily move the pagefile.sys, attach a new data disk and assign it the letter D and then move the pagefile.sys back to the temporary drive. Once complete, Azure will not take back the D: if the VM moves to a different hypervisor.
+> Note: If you resize or Stop (Deallocate) a virtual machine, this may trigger placement of the virtual machine to a new hypervisor. A planned or unplanned maintenance event may also trigger this placement. In this scenario, the temporary disk will be reassigned to the first available drive letter. Azure will not take back the D: if the VM moves to a different hypervisor and you have another drive mapped to D:.
 
 The DSC Configuration performs the following steps:
 

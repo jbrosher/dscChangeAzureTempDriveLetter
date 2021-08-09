@@ -6,9 +6,9 @@ PowerShell DSC Configuration Package to change the Temp Drive letter for Azure V
 
 The DSC Configuration performs the following steps:
 
-1) Checks Win32_Volume for a D: Drive Letter with a label of Temporary Storage
+1) Checks Win32_PageFileSetting for a setting using the D: Drive Letter
 2) If step 1 is TRUE then it will delete the Page File configuration and restarts the VM
-3) Changes Win32_Volume using the D: Drive Letter with a label of Temporary Storage to use the T drive letter
+3) Changes the D: Drive Letter to use the T drive letter
 4) Sets the Page File configuration to use the T drive letter and restarts the VM
 
 ## Package Zip File for use in the PowerShell DSC Extension

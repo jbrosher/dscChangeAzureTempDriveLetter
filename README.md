@@ -11,7 +11,7 @@ The DSC Configuration performs the following steps:
 
 ## Package Zip File for use in the PowerShell DSC Extension
 
-> Note: Requires AZ Powershell Modules to be installed
+> Note: Azure PowerShell DSC VM extension requires files to be packaged in a specific way and requires AZ Powershell Modules to be installed to create the Archive
 
 1) Publish Zip FIle Directly to a Storage Account
 

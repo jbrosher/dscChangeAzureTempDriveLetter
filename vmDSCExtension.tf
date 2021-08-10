@@ -1,11 +1,10 @@
 locals {
-    vmName = "<vm_name>" 
     vmID   = "<vm_resource_id>"
     zipURI = "https://<storage_account_name>.blob.core.windows.net/windows-powershell-dsc/dscChangeAzureTempDriveLetter.ps1.zip"
 }
 
 resource "azurerm_virtual_machine_extension" "dscChangeAzureTempDriveLetter" {
-  name                       = "${local.vmName}/dscChangeAzureTempDriveLetter"
+  name                       = "dscChangeAzureTempDriveLetter"
   virtual_machine_id         = local.vmID
   publisher                  = "Microsoft.PowerShell"
   type                       = "DSC"
@@ -14,8 +13,8 @@ resource "azurerm_virtual_machine_extension" "dscChangeAzureTempDriveLetter" {
 
   settings = <<SETTINGS
     {
-        "modulesURL": "${local.zipURI}"
-        "wmfVersion": "latest"
+        "modulesURL": "${local.zipURI}",
+        "wmfVersion": "latest",
         "configurationFunction": "dscChangeAzureTempDriveLetter.ps1\\dscChangeAzureTempDriveLetter"
     }
 SETTINGS

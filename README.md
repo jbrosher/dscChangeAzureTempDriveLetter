@@ -86,11 +86,10 @@ The DSC Configuration performs the following steps:
 
 1) If you have an existing DSC extension you will have to remove it before deploying this.
 2) Upload Zip file to a storage account
-3) Update the locals in vmDSCExtension.tf file with your vmName, vmID, and update the <storage_account_name> in the zipURI
+3) Update the locals in vmDSCExtension.tf file with your vmID, and update the <storage_account_name> in the zipURI
 
     ``` Terraform
     locals {
-        vmName = "<vm_name>" 
         vmID   = "<vm_resource_id>"
         zipURI = "https://<storage_account_name>.blob.core.windows.net/windows-powershell-dsc/dscChangeAzureTempDriveLetter.ps1.zip"
     }

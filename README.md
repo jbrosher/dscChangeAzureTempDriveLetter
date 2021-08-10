@@ -15,7 +15,7 @@ The DSC Configuration performs the following steps:
 
 > Note: Azure PowerShell DSC VM extension requires files to be packaged in a specific way and requires AZ Powershell Modules to be installed to create the Archive
 
-1) Publish Zip FIle Directly to a Storage Account
+1) Publish Zip File Directly to a Storage Account
 
     ``` PowerShell
     $storageAccountName = "<storage_account_name>"
@@ -38,7 +38,7 @@ The DSC Configuration performs the following steps:
 
 1) If you have an existing DSC extension you will have to remove it before deploying this.
 2) Upload Zip file to a storage account
-3) Modify the azuredeploy.parameters.json file with your vmName and zipURI
+3) Modify the azuredeploy.parameters.json file with your vmName and update the <storage_account_name> in the zipURI
 
     ``` JSON
     {
@@ -49,7 +49,7 @@ The DSC Configuration performs the following steps:
                 "value": "<vm_name>"
             },
             "sasURI": {
-                "value": "<zip_uri>"
+                "value": "https://<storage_account_name>.blob.core.windows.net/windows-powershell-dsc/dscChangeAzureTempDriveLetter.ps1.zip"
             }
         }
     }
@@ -86,13 +86,13 @@ The DSC Configuration performs the following steps:
 
 1) If you have an existing DSC extension you will have to remove it before deploying this.
 2) Upload Zip file to a storage account
-3) Update the locals in vmDSCExtension.tf file with your vmName, vmID, and zipURI
+3) Update the locals in vmDSCExtension.tf file with your vmName, vmID, and update the <storage_account_name> in the zipURI
 
     ``` Terraform
     locals {
         vmName = "<vm_name>" 
         vmID   = "<vm_resource_id>"
-        zipURI = "<zip_uri>"
+        zipURI = "https://<storage_account_name>.blob.core.windows.net/windows-powershell-dsc/dscChangeAzureTempDriveLetter.ps1.zip"
     }
     ```
 

@@ -6,7 +6,7 @@
           "value": "<vm_name>"
       },
       "zipURI": {
-          "value": "<storage_blob_sas_uri_for_zip_file>"
+          "value": "https://<storage_account_name>.blob.core.windows.net/windows-powershell-dsc/dscChangeAzureTempDriveLetter.ps1.zip"
       }
     }
 }

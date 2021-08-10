@@ -1,7 +1,7 @@
 locals {
     vmName = "<vm_name>" 
     vmID   = "<vm_resource_id>"
-    zipURI = "<zip_uri>"
+    zipURI = "https://<storage_account_name>.blob.core.windows.net/windows-powershell-dsc/dscChangeAzureTempDriveLetter.ps1.zip"
 }
 
 resource "azurerm_virtual_machine_extension" "dscChangeAzureTempDriveLetter" {
